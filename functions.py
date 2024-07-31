@@ -7,7 +7,8 @@
 # func_linha[18] = LINK
 
 def whatsApp(func_linha, arquivo):
-   caminho = (fr'C:\Users\r323741\Desktop\projetin\anuncios\{arquivo}.txt')
+   caminho = (fr'C:\Users\Flavio\_Flavio\LEGO\anuncios\{arquivo}.txt')            #casa
+   # caminho = (fr'C:\Users\r323741\Desktop\projetin\anuncios\{arquivo}.txt')     #trabalho
    
 
    with open(caminho, 'w') as texto:
@@ -39,7 +40,8 @@ def whatsApp(func_linha, arquivo):
 
 
 def lojinha(func_linha, arquivo):
-   caminho = (fr'C:\Users\r323741\Desktop\projetin\anuncios\{arquivo}.txt')
+   caminho = (fr'C:\Users\Flavio\_Flavio\LEGO\anuncios\{arquivo}.txt')            #casa
+   # caminho = (fr'C:\Users\r323741\Desktop\projetin\anuncios\{arquivo}.txt')     #trabalho
    
      
    with open(caminho, 'a') as texto:

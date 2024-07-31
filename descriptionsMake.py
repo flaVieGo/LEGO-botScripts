@@ -7,7 +7,8 @@ entradas = input('Informe os IDs para criação de anúncios: ')                
 ID = [int(numero) for numero in entradas.split()]
 
 xl = xlwings.App(visible=False)
-arquivoXL = xl.books.open(r"C:\Users\r323741\Desktop\projetin\LEGO.xlsm")
+# arquivoXL = xl.books.open(r"C:\Users\r323741\Desktop\projetin\LEGO.xlsm")   #trabalho
+arquivoXL = xl.books.open(r"C:\Users\Flavio\_Flavio\LEGO\LEGO.xlsm")          #casa
 planilha = arquivoXL.sheets["Anuncios"]
 
 for i in ID:
@@ -19,7 +20,7 @@ for i in ID:
             dadosLinha = None
 
     if dadosLinha:
-        nomeArquivo = (f'{int(dadosLinha[1])}_{int(dadosLinha[0])}')
+        nomeArquivo = (f'[{int(dadosLinha[0])}] {int(dadosLinha[1])}')
 
         func.whatsApp(dadosLinha, nomeArquivo)
         func.lojinha(dadosLinha, nomeArquivo)
