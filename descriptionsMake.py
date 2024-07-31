@@ -1,7 +1,7 @@
 import xlwings
 import functions as func
 
-print('Descriptions Make, Vers. 2.1\n\n')
+print('Descriptions Make, Vers. 2.0\n')
 
 entradas = input('Informe os IDs para criação de anúncios: ')                           #ID recebe os números dos anúncios a serem criados
 ID = [int(numero) for numero in entradas.split()]

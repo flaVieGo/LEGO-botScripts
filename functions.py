@@ -11,9 +11,31 @@ def whatsApp(func_linha, arquivo):
    
 
    with open(caminho, 'w') as texto:
-      texto.write(f'Descrição para WhatsApp\n\n')
-      texto.write(f'# {int(func_linha[1])}\n\n')
+    texto.write(f'Descrição para WhatsApp\n\n')
+    texto.write(f'#{int(func_linha[1])}\n\n')
 
+    texto.write(f'Set: {func_linha[3]}\n')
+    texto.write(f'Linha: {func_linha[2]}\n')
+    texto.write(f'Condição: {func_linha[6]}\n')
+    texto.write(f'Peças: {int(func_linha[5])}\n')
+    texto.write(f'Ano: {int(func_linha[13])}\n')
+    if (func_linha[11]) == 'N/A':
+        texto.write(f'Minifiguras: N/A\n')
+    else:
+        texto.write(f'Minifiguras: {int(func_linha[11])}\n')
+    
+    if func_linha[6] == 'Usado':
+         texto.write(f'\nEmbalagem: {func_linha[7]} [obs]\n')
+         texto.write(f'Instruções: {func_linha[8]} [obs]\n')
+         if func_linha[9] == 'Completo':
+            texto.write(f'Peças: {func_linha[10]}\n')
+         else:
+            texto.write(f'Vide observações abaixo.\n')
+    
+    texto.write(f'\nPreço: R${func_linha[15]:.2f}\n')
+    texto.write(f'Qtde. Disponível: {int(func_linha[16])}\n\n')
+
+    texto.write(f'Link: {func_linha[18]}\n')
 
 
 def lojinha(func_linha, arquivo):
@@ -21,7 +43,7 @@ def lojinha(func_linha, arquivo):
    
      
    with open(caminho, 'a') as texto:
-      texto.write(f'Descrição para ML\n\n')
+      texto.write(f'\n\n\nDescrição para ML\n\n')
 
       texto.write(f'{int(func_linha[1])} LEGO®: {func_linha[2]} - {func_linha[3]}')
       if func_linha[4] == 'GWP':
