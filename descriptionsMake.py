@@ -1,7 +1,7 @@
 import xlwings
 import functions as func
 
-print('Descriptions Make, Vers. 2.3\n')
+print('Descriptions Make, Vers. 2.5\n')
 
 entradas = input('Informe os IDs para criação de anúncios (primeiro e último apenas): ') 
 rangeNumeros = [int(numero) for numero in entradas.split()]
@@ -12,20 +12,24 @@ xl = xlwings.App(visible=False)
 # arquivoXL = xl.books.open(r"C:\Users\r323741\Desktop\projetin\LEGO.xlsm")   #trabalho
 arquivoXL = xl.books.open(r"C:\Users\Flavio\_Flavio\LEGO\LEGO.xlsm")          #casa
 planilha = arquivoXL.sheets["Anuncios"]
+primeiraCelula = 'B6'
+ultimaCelula = 'B200'
 
 for i in ID:
-    for celula in planilha.range(f'B6:B1000'):
+    for celula in planilha.range(f'{primeiraCelula}:{ultimaCelula}'):
         if(celula.value) == i:
             dadosLinha = planilha.range(celula.row, 2).expand('right').value
+            primeiraCelula = celula.address
             break
         else:
             dadosLinha = None
+            
 
     if dadosLinha:
         nomeArquivo = (f'[{int(dadosLinha[0])}] {int(dadosLinha[1])}')
 
-        func.whatsApp(dadosLinha, nomeArquivo)
         func.lojinha(dadosLinha, nomeArquivo)
+        func.whatsApp(dadosLinha, nomeArquivo)
 
         print(f"Informações do anúncio {i} salvas em {nomeArquivo}.txt")
     else:
