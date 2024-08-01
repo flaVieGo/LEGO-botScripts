@@ -1,10 +1,12 @@
 import xlwings
 import functions as func
 
-print('Descriptions Make, Vers. 2.0\n')
+print('Descriptions Make, Vers. 2.3\n')
 
-entradas = input('Informe os IDs para criação de anúncios: ')                           #ID recebe os números dos anúncios a serem criados
-ID = [int(numero) for numero in entradas.split()]
+entradas = input('Informe os IDs para criação de anúncios (primeiro e último apenas): ') 
+rangeNumeros = [int(numero) for numero in entradas.split()]
+
+ID = list(range(rangeNumeros[0], rangeNumeros[1] + 1))
 
 xl = xlwings.App(visible=False)
 # arquivoXL = xl.books.open(r"C:\Users\r323741\Desktop\projetin\LEGO.xlsm")   #trabalho
