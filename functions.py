@@ -73,4 +73,4 @@ def whatsApp(func_linha, arquivo):
     texto.write(f'\nPreço: R${func_linha[15]:.2f}\n')
     texto.write(f'Qtde. Disponível: {int(func_linha[16])}\n\n')
 
-    texto.write(f'Link: {func_linha[18]}\n')
+    texto.write(f'Link: {func_linha[17]}\n')

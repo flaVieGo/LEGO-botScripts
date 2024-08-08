@@ -41,4 +41,4 @@ input("qualquer tecla para fechar...")
 arquivoXL.close()
 xl.quit()
 
-# pyinstaller --onefile meu_programa.py
+# pyinstaller --onefile descriptionsMake.py
