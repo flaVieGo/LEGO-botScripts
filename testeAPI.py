@@ -1,3 +1,6 @@
+# https://brickset.com/article/52664/api-version-3-documentation
+# 
+
 import requests
 
 API_KEY = '3-tgev-1qP3-cdGjH'
