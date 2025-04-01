@@ -104,3 +104,46 @@ if login_response and login_response.get('status') == 'success':
     print("✅ Login bem-sucedido! User Hash:", login_response.get('hash'))
 else:
     print("❌ Erro no login:", login_response)
+
+
+
+
+# final para testes
+
+import requests
+
+USERNAME = 'Fabricks'
+PASSWORD = 'K0nt@_Brickset'
+API_KEY = '3-tgev-1qP3-cdGjH'
+USER_HASH = '4vduPL67GP'
+BASE_URL = 'https://brickset.com/api/v3.asmx/'
+QUERY = '4100-1'
+
+def search_sets(api_key, user_hash, query):
+    """Busca conjuntos de LEGO pelo número do set."""
+    data = {
+        "apiKey": api_key,
+        "userHash": user_hash,
+        "params": '{"setNumber": "' + query + '"}'  # Formatar JSON como string
+    }
+
+    response = requests.post(f"{BASE_URL}getSets", data=data)
+
+    print("Status Code:", response.status_code)
+    print("Resposta Bruta:", response.text)
+
+    try:
+        return response.json()
+    except requests.exceptions.JSONDecodeError:
+        print("Erro ao decodificar JSON. Resposta pode estar vazia ou malformada.")
+        return None
+
+# Testar a busca pelo set "4100-1"
+sets = search_sets(API_KEY, USER_HASH, QUERY)
+
+if sets and sets.get('status') == 'success':
+    print(f"✅ {len(sets.get('sets', []))} sets encontrados!")
+    for s in sets.get('sets', [])[:5]:  # Exibir os primeiros 5 sets
+        print(f"- {s['name']} ({s['setID']})")
+else:
+    print("❌ Erro ao buscar conjuntos:", sets)
